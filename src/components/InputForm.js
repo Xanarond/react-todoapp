@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
 
-class MyComponent extends Component {
+class InputForm extends Component {
   state = {
     label: ''
   };
@@ -22,6 +22,7 @@ class MyComponent extends Component {
 
   render() {
     return (
+      <div className= "todo-input">
       <form
         className="bottom-panel d-flex"
         onSubmit={this.onSubmit}
@@ -29,19 +30,21 @@ class MyComponent extends Component {
 
         <input
           type="text"
-          className="form-control new-todo-label"
-          value={this.state.label}
-          onChange={this.onLabelChange}
+          className="todo-form"
+          onChange={e => this.updateInput(e.target.value)}
+          value={this.state.input}
           placeholder="What needs to be done?"
         />
 
         <button
           type="submit"
           className="btn btn-outline-secondary"
+          onClick={this.handleAddTodo}
         >
           Add
         </button>
       </form>
+      </div>
     );
   }
 }
@@ -52,4 +55,4 @@ function mapStateToProps(state) {
 
 export default connect(
   mapStateToProps,
-)(MyComponent);
+)(InputForm);
