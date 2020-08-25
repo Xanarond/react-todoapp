@@ -5,11 +5,6 @@ import InputForm from './InputForm';
 import ListTodos from './ListTodos';
 
 class TodoList extends Component {
-  constructor() {
-    super();
-    this.state = { name: '' };
-  }
-
   render() {
     return (
       <div className="todo-app">

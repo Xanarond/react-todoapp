@@ -75,11 +75,9 @@ class InputForm extends Component {
     }
 }
 
-function mapStateToProps(state) {
-    return {
-        label: state.label,
-       content: state.content
-    };
-}
+const mapStateToProps = state => ({
+    label: state.label,
+    content: state.content
+});
 
 export default connect(mapStateToProps, {addTodo})(InputForm);

@@ -8,13 +8,14 @@ const todosReducer = (state = initialState, action) => {
   switch (action.type) {
     case 'ADD_TODO':
       const { id, label, content } = action.payload;
-      return [{
+      return {
         ...state,
-        id,
-        label,
-        content,
-      },
-      ];
+        [id]: {
+          id,
+          label,
+          content,
+        },
+      };
     /* case 'TOGGLE_TODO':
       return state.map((todo) => (todo.id === action.id ? { ...todo, completed: !todo.completed } : todo));
     case 'REMOVE_TODO':
@@ -28,5 +29,12 @@ const todosReducer = (state = initialState, action) => {
       return state;
   }
 };
-
 export default todosReducer;
+
+export const getTodos = () => (dispatch, getState) => {
+  const { todo } = getState();
+  const array = [];
+  array.push(todo);
+  console.log(array);
+  dispatch({ type: 'GET_TODOS', payload: array });
+};
