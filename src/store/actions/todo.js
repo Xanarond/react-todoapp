@@ -1,9 +1,14 @@
 let nextTodoId = 0;
-export const addTodo = (text) => ({
+
+export const addTodo = (label, content) => ({
   type: 'ADD_TODO',
-  id: nextTodoId++,
-  text,
+  payload: {
+    id: ++nextTodoId,
+    label,
+    content,
+  },
 });
+
 export const toggleTodo = (id) => ({
   type: 'TOGGLE_TODO',
   id,
