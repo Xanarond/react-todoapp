@@ -3,8 +3,8 @@ import {connect} from 'react-redux';
 import {addTodo} from "../store/actions/todo";
 
 class InputForm extends Component {
-    constructor(props) {
-        super(props);
+    constructor() {
+        super();
         this.state = {
             label: '',
             content: ''
@@ -21,6 +21,13 @@ class InputForm extends Component {
     validateText(content) {
         return content.length > 3;
     }
+
+    onItemAdded = (label) => {
+        this.setState((state) => {
+            const item = this.createItem(label);
+            return { items: [...state.items, item] };
+        })
+    };
 
     onLabelChange = (e) => {
         let val = e.target.value
@@ -56,9 +63,9 @@ class InputForm extends Component {
 
     render() {
         // цвет границы для поля для ввода имени
-        var titleColor = this.state.labelValid === true ? "green" : "#3d7ec0";
+        let titleColor = this.state.labelValid === true ? "green" : "#3d7ec0";
         // цвет границы для поля для ввода возраста
-        var contentColor = this.state.contentValid === true ? "green" : "#3d7ec0";
+        let contentColor = this.state.contentValid === true ? "green" : "#3d7ec0";
         return (
             <div className="todo-input">
                 <form
@@ -98,9 +105,11 @@ class InputForm extends Component {
     }
 }
 
+/*
 const mapStateToProps = state => ({
     label: state.label,
     content: state.content
 });
+*/
 
-export default connect(mapStateToProps, {addTodo})(InputForm);
+export default connect(null, {addTodo})(InputForm);
