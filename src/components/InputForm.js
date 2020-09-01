@@ -75,7 +75,7 @@ class InputForm extends Component {
 
                     <input
                         type="text"
-                        maxLength="20"
+                        maxLength="15"
                         className="title-form"
                         onChange={this.onLabelChange}
                         value={this.state.label}
@@ -83,9 +83,9 @@ class InputForm extends Component {
                         style={{borderColor: titleColor}}
                     />
 
-                    <textarea
+                    <input
                         type="text"
-                        maxLength="70"
+                        maxLength="25"
                         className="text-form"
                         onChange={this.onContentChange}
                         value={this.state.content}
@@ -107,11 +107,5 @@ class InputForm extends Component {
     }
 }
 
-/*
-const mapStateToProps = state => ({
-    label: state.label,
-    content: state.content
-});
-*/
 
 export default connect(null, {addTodo})(InputForm);

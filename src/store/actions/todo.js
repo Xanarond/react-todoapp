@@ -9,7 +9,10 @@ export const addTodo = (label, content) => ({
   },
 });
 
-export const toggleTodo = (id) => ({
+export const toggleTodo = (id, completed) => ({
   type: 'TOGGLE_TODO',
-  id,
+  payload: {
+    id,
+    completed,
+  },
 });
