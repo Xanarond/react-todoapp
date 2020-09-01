@@ -1,36 +1,40 @@
 import React from 'react';
 import { connect } from 'react-redux';
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+import { toggleTodo } from '../store/actions/todo';
 
-function TodoItem({ todo,
-  content, done, label, onToggleImportant, onToggleDone, onDelete,
-}) {
-  return (
-    <span>
+const TodoItem = ({ label, content }) => (
+
+  <div className="container">
+    <div className="content">
       <span
-        className="todo-list-item-label"
-        onClick={onToggleDone}
+        className="title"
       >
         {label}
-        {content}
       </span>
+      <p className="">{content}</p>
+    </div>
+    <button
+      type="button"
+      className="button-item"
+    >
+      <FontAwesomeIcon icon={['fas', 'coffee']} />
+    </button>
 
-      <button
-        type="button"
-        className="btn btn-outline-success btn-sm float-right"
-        onClick={onToggleImportant}
-      >
-        <i className="fa fa-exclamation" />
-      </button>
+    <button
+      type="button"
+      className="button-item"
+    >
+      <FontAwesomeIcon icon={['fas', 'coffee']} />
+    </button>
 
-      <button
-        type="button"
-        className="btn btn-outline-danger btn-sm float-right"
-        onClick={onDelete}
-      >
-        <i className="fa fa-trash-o" />
-      </button>
-    </span>
-  );
-}
-
-export default connect(null)(TodoItem);
+    <button
+      type="button"
+      className="button-item"
+    >
+      <i className="fas fa-trash-alt" />
+    </button>
+  </div>
+);
+export default connect(null,
+  { toggleTodo })(TodoItem);

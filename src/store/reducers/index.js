@@ -1,21 +1,15 @@
-const initialState = {
-  id: '',
-  label: '',
-  content: '',
-};
-
-const todosReducer = (state = initialState, action) => {
+const todosReducer = (state = [], action) => {
   switch (action.type) {
     case 'ADD_TODO':
       const { id, label, content } = action.payload;
-      return {
+      return [
         ...state,
-        [id]: [
+        {
           id,
           label,
           content,
-        ],
-      };
+        },
+      ];
     case 'TOGGLE_TODO':
       return state.map((todo) => (todo.id === action.id
         ? { ...todo, completed: !todo.completed }

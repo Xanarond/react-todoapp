@@ -1,6 +1,40 @@
-.todo-list-item-label {
-  margin-left: 1.25rem;
-  line-height: 35px;
-  cursor: pointer;
-  user-select: none;
+.container{
+  display: -webkit-flex;
+  -webkit-flex-flow: row wrap;
+  display: flex;
+  flex-flow: row wrap;
+}
+.title{
+  -webkit-flex: 3 1 100px;
+  -ms-flex:  3 1 100px;
+  flex:  3 1 100px;
+}
+.content{
+  -webkit-flex: 3 1 100px;
+  -ms-flex:  3 1 100px;
+  flex:  3 1 100px;
+}
+
+.list-group-item{
+border: #4949e4 solid 1px;
+  border-radius: 6px;
+  margin-bottom: 5px;
+  list-style-type: none;
+  padding: 5px;
+}
+
+
+p {
+  font-size: 13px;
+  color: #6d6d6d;
+  margin-right: auto;
+}
+
+.button-item{
+  width: 60px;
+  height: 30px;
+  position: relative;
+  line-height: 2.4rem;
+  padding: 6px;
+  margin: 2px;
 }

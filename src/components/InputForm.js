@@ -75,16 +75,18 @@ class InputForm extends Component {
 
                     <input
                         type="text"
-                        className="todo-form"
+                        maxLength="20"
+                        className="title-form"
                         onChange={this.onLabelChange}
                         value={this.state.label}
                         placeholder="Title"
                         style={{borderColor: titleColor}}
                     />
 
-                    <input
+                    <textarea
                         type="text"
-                        className="todo-form"
+                        maxLength="70"
+                        className="text-form"
                         onChange={this.onContentChange}
                         value={this.state.content}
                         placeholder="Content"

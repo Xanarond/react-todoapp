@@ -1,25 +1,23 @@
 import React from 'react';
 import { connect } from 'react-redux';
-import { bindActionCreators } from 'redux';
 import { getTodos } from '../store/reducers';
 import TodoItem from './TodoItem';
 
-class ListTodos extends React.Component {
-  render() {
-    const { todo } = this.props;
+const ListTodos = ({ todo }) => {
+  console.log(todo);
+  const elements = todo.map((item) => {
+    const { id, label, content } = item;
     return (
-      <ul className="todo-list">
-        {
-          todo && todo.length
-            ? todo.map((curVarlue, index) => <TodoItem key={`todo-${curVarlue.id}`} todo={curVarlue} />) : 'No todos, yay!'
-        }
-      </ul>
+      <li key={id} className="list-group-item">
+        <TodoItem label={label} content={content} />
+      </li>
     );
-  }
-}
+  });
 
-const mapDispatchToProps = (dispatch) => bindActionCreators({ getTodos }, dispatch);
+  return (<ul className="elem">{ elements }</ul>);
+};
+
 const mapStateToProps = (state) => ({
   todo: state.todo,
 });
-export default connect(mapStateToProps, mapDispatchToProps)(ListTodos);
+export default connect(mapStateToProps, { getTodos })(ListTodos);
